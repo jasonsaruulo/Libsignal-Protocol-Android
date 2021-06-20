@@ -1,6 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.5.10"
+    // Version 1.5.10 does not work with Dagger 2.25.4
+    ext.kotlin_version = '1.4.32'
     repositories {
         google()
         mavenCentral()
