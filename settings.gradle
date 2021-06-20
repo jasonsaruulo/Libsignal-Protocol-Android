@@ -1,0 +1,2 @@
+rootProject.name = "LibsignalProtocolAndroid"
+include ':app'
