@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LibsignalProtocolAndroid</string>
+
+    <string name="main_this_could_be_the_start">This could be the start of something new.</string>
 </resources>
