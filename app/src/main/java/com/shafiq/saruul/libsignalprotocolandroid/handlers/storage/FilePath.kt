@@ -1,4 +1,4 @@
-package com.shafiq.saruul.libsignalprotocolandroid.storage
+package com.shafiq.saruul.libsignalprotocolandroid.handlers.storage
 
 import android.content.Context
 
