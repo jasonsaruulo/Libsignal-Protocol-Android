@@ -1,17 +1,18 @@
 package com.shafiq.saruul.libsignalprotocolandroid.handlers.encryption
 
-import android.content.Context
 import com.google.gson.Gson
+import com.shafiq.saruul.libsignalprotocolandroid.handlers.HandlerModule.Companion.HOME_DIRECTORY
 import com.shafiq.saruul.libsignalprotocolandroid.handlers.storage.FilePath
 import com.shafiq.saruul.libsignalprotocolandroid.handlers.storage.StorageHandler
 import org.whispersystems.libsignal.InvalidKeyIdException
 import org.whispersystems.libsignal.state.SignedPreKeyRecord
 import org.whispersystems.libsignal.state.SignedPreKeyStore
 import javax.inject.Inject
+import javax.inject.Named
 
 class ExampleSignedPreKeyStore @Inject constructor(
-    context: Context,
     private val gson: Gson,
+    @Named(HOME_DIRECTORY) private val homeDirectory: String,
     private val storageHandler: StorageHandler
 ) : SignedPreKeyStore {
 
@@ -19,7 +20,7 @@ class ExampleSignedPreKeyStore @Inject constructor(
         private const val SIGNED_PRE_KEY_DIRECTORY = "signedPreKeys"
     }
 
-    private val filePath: FilePath = FilePath(context, SIGNED_PRE_KEY_DIRECTORY)
+    private val filePath: FilePath = FilePath(homeDirectory, SIGNED_PRE_KEY_DIRECTORY)
 
     override fun containsSignedPreKey(signedPreKeyId: Int): Boolean {
         return storageHandler.hasFile(filePath, signedPreKeyId.toString())

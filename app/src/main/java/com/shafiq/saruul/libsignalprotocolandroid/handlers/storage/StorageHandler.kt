@@ -8,6 +8,8 @@ interface StorageHandler {
 
     fun deleteFile(filePath: FilePath, fileName: String): Boolean
 
+    fun deleteDirectory(filePath: FilePath)
+
     fun transformToJsonAndSaveToFile(filePath: FilePath, fileName: String, data: Any?): Boolean
 
     fun readFile(filePath: FilePath, fileName: String): String?

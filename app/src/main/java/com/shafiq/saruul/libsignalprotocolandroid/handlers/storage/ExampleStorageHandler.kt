@@ -23,6 +23,10 @@ class ExampleStorageHandler @Inject constructor(
         return true
     }
 
+    override fun deleteDirectory(filePath: FilePath) {
+        File(filePath.filePath).deleteRecursively()
+    }
+
     override fun listFileNames(filePath: FilePath): List<String> {
         File(filePath.filePath).listFiles()?.map { file ->
             file.name
