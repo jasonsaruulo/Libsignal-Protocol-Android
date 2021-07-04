@@ -23,6 +23,15 @@ class ExampleStorageHandler @Inject constructor(
         return true
     }
 
+    override fun listFileNames(filePath: FilePath): List<String> {
+        File(filePath.filePath).listFiles()?.map { file ->
+            file.name
+        }?.let {
+            return it
+        }
+        return listOf()
+    }
+
     private fun getEncryptedFile(filePath: FilePath, fileName: String): EncryptedFile {
         val keyGenParameterSpec = MasterKeys.AES256_GCM_SPEC
         val masterKeyAlias = MasterKeys.getOrCreate(keyGenParameterSpec)

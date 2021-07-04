@@ -4,6 +4,8 @@ interface StorageHandler {
 
     fun hasFile(filePath: FilePath, fileName: String): Boolean
 
+    fun listFileNames(filePath: FilePath): List<String>
+
     fun deleteFile(filePath: FilePath, fileName: String): Boolean
 
     fun transformToJsonAndSaveToFile(filePath: FilePath, fileName: String, data: Any?): Boolean
