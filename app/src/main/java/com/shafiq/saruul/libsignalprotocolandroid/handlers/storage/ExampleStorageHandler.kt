@@ -51,7 +51,7 @@ class ExampleStorageHandler @Inject constructor(
         ).build()
     }
 
-    private fun saveToFile(filePath: FilePath, fileName: String, data: String): Boolean {
+    override fun saveToFile(filePath: FilePath, fileName: String, data: String): Boolean {
         deleteFile(filePath, fileName)
         getEncryptedFile(filePath, fileName).openFileOutput().bufferedWriter().use {
             it.write(data)
