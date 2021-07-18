@@ -31,7 +31,7 @@ class ExampleSignedPreKeyStore @Inject constructor(
             storageHandler.transformToJsonAndSaveToFile(
                 filePath,
                 signedPreKeyId.toString(),
-                EncryptionDto.createSignedPreKeyDto(record.serialize())
+                EncryptionDto.createSignedPreKeyDto(record)
             )
         }
     }

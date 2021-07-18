@@ -1,5 +1,9 @@
 package com.shafiq.saruul.libsignalprotocolandroid.handlers.encryption
 
+import org.whispersystems.libsignal.IdentityKey
+import org.whispersystems.libsignal.IdentityKeyPair
+import org.whispersystems.libsignal.state.SignedPreKeyRecord
+
 /**
  * To avoid direct nested array when up-/downloading.
  * Gson can also not create JSON received from backend for Signal Protocol.
@@ -14,16 +18,16 @@ class EncryptionDto private constructor(val bytes: ByteArray) {
         private const val SESSION = "session"
         private const val SIGNED_PRE_KEY = "signedPreKey"
 
-        fun createIdentityKeyPairDto(bytes: ByteArray): EncryptionDto {
-            return EncryptionDto(bytes)
+        fun createIdentityKeyPairDto(identityKeyPair: IdentityKeyPair): EncryptionDto {
+            return EncryptionDto(identityKeyPair.serialize())
         }
 
         fun createPreKeyDto(bytes: ByteArray): EncryptionDto {
             return EncryptionDto(bytes)
         }
 
-        fun createPublicIdentityKeyDto(bytes: ByteArray): EncryptionDto {
-            return EncryptionDto(bytes)
+        fun createPublicIdentityKeyDto(identityKey: IdentityKey): EncryptionDto {
+            return EncryptionDto(identityKey.serialize())
         }
 
         fun createIdentityKeyDto(bytes: ByteArray): EncryptionDto {
@@ -34,8 +38,8 @@ class EncryptionDto private constructor(val bytes: ByteArray) {
             return EncryptionDto(bytes)
         }
 
-        fun createSignedPreKeyDto(bytes: ByteArray): EncryptionDto {
-            return EncryptionDto(bytes)
+        fun createSignedPreKeyDto(signedPreKeyRecord: SignedPreKeyRecord): EncryptionDto {
+            return EncryptionDto(signedPreKeyRecord.serialize())
         }
     }
 }

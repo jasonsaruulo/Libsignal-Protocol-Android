@@ -11,7 +11,6 @@ import javax.inject.Inject
 import javax.inject.Named
 
 class ExamplePreKeyStore @Inject constructor(
-    context: Context,
     private val gson: Gson,
     @Named(HOME_DIRECTORY) private val homeDirectory: String,
     private val storageHandler: StorageHandler
